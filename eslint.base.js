@@ -6,7 +6,7 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:prettier/recommended",
         "plugin:promise/recommended",
-        require.resolve("./restricted-paths")
+        require.resolve("./restricted-paths"),
     ],
     plugins: ["unicorn", "prettier", "import", "@typescript-eslint"],
     parser: "@typescript-eslint/parser",
@@ -14,13 +14,13 @@ module.exports = {
         "import/resolver": {
             // See https://github.com/benmosher/eslint-plugin-import/issues/1396#issuecomment-575727774 for line below
             node: {},
-            typescript: {}
+            typescript: {},
         },
         "import/parsers": {
-            "@typescript-eslint/parser": [".ts", ".tsx"]
+            "@typescript-eslint/parser": [".ts", ".tsx"],
         },
         "import/core-modules": ["electron"],
-        "import/internal-regex": "^@mas/"
+        "import/internal-regex": "^@mas/",
     },
     reportUnusedDisableDirectives: true,
     rules: {
@@ -97,7 +97,7 @@ module.exports = {
         "unicorn/throw-new-error": "error",
         "promise/always-return": "off",
         "promise/catch-or-return": ["error", { allowThen: true, allowFinally: true }],
-        "@typescript-eslint/ban-types": ["error", { types: { "{}": false, "Function": false } }],
+        "@typescript-eslint/ban-types": ["error", { types: { "{}": false, Function: false } }],
         "@typescript-eslint/ban-ts-comment": ["error", { "ts-ignore": "allow-with-description" }],
         // using prettier
         "@typescript-eslint/indent": "off",
@@ -109,8 +109,8 @@ module.exports = {
                 objects: "never",
                 imports: "never",
                 exports: "never",
-                functions: "never"
-            }
+                functions: "never",
+            },
         ],
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-explicit-any": "off",
@@ -125,15 +125,15 @@ module.exports = {
                     constructors: "no-public",
                     methods: "no-public",
                     properties: "no-public",
-                    parameterProperties: "no-public"
-                }
-            }
+                    parameterProperties: "no-public",
+                },
+            },
         ],
         "@typescript-eslint/no-empty-interface": [
             "error",
             {
-                allowSingleExtends: true
-            }
+                allowSingleExtends: true,
+            },
         ],
         "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/no-this-alias": "off",
@@ -153,86 +153,36 @@ module.exports = {
                     "signature",
 
                     // Fields
-                    ["static-field", "public-static-field", "protected-static-field", "private-static-field"],
-                    ["abstract-field", "public-abstract-field", "protected-abstract-field", "private-abstract-field"],
-                    [
-                        "field",
-                        "instance-field",
-                        "public-instance-field",
-                        "protected-instance-field",
-                        "private-instance-field",
-                        "decorated-field",
-                        "public-decorated-field",
-                        "protected-decorated-field",
-                        "private-decorated-field"
-                    ],
+                    "field",
 
                     // Static initialization
                     "static-initialization",
 
                     // Constructors
-                    ["constructor", "public-constructor"],
-                    "protected-constructor",
-                    "private-constructor",
+                    "constructor",
 
-                    // Get/Set
-
-                    ["static-get", "static-set", "public-static-get", "public-static-set"],
-                    ["protected-static-get", "protected-static-set"],
-                    ["private-static-get", "private-static-set"],
-                    ["abstract-get", "abstract-set", "public-abstract-get", "public-abstract-set"],
-                    ["protected-abstract-get", "protected-abstract-set"],
-                    ["private-abstract-get", "private-abstract-set"],
-                    [
-                        "get",
-                        "set",
-                        "public-get",
-                        "public-set",
-                        "public-instance-get",
-                        "public-instance-set",
-                        "decorated-get",
-                        "decorated-set",
-                        "public-decorated-get",
-                        "public-decorated-set"
-                    ],
-                    ["protected-get", "protected-set", "protected-decorated-get", "protected-decorated-set"],
-                    ["private-get", "private-set", "private-decorated-get", "private-decorated-set"],
+                    // Getters and Setters at the same rank
+                    ["get", "set"],
 
                     // Methods
-                    ["static-method", "public-static-method"],
-                    "protected-static-method",
-                    "private-static-method",
-                    ["abstract-method", "public-abstract-method"],
-                    "protected-abstract-method",
-                    "private-abstract-method",
-                    [
-                        "method",
-                        "public-method",
-                        "public-instance-method",
-                        "decorated-method",
-                        "public-decorated-method"
-                    ],
-                    ["protected-instance-method", "protected-decorated-method"],
-                    "protected-method",
-                    ["private-instance-method", "private-decorated-method"],
-                    "private-method"
-                ]
-            }
+                    "method",
+                ],
+            },
         ],
         "import/order": [
             "error",
             {
-                "groups": ["builtin", "external", "internal", "type", "sibling", "parent", "index", "object"],
+                groups: ["builtin", "external", "internal", "type", "sibling", "parent", "index", "object"],
                 "newlines-between": "always-and-inside-groups",
-                "alphabetize": { order: "asc" }
-            }
+                alphabetize: { order: "asc" },
+            },
         ],
         "import/prefer-default-export": "off",
         "import/no-useless-path-segments": [
             "error",
             {
-                noUselessIndex: true
-            }
+                noUselessIndex: true,
+            },
         ],
         "import/no-relative-parent-imports": "off",
         "import/no-relative-packages": "off",
@@ -240,8 +190,8 @@ module.exports = {
         "import/no-self-import": "error",
         "import/no-extraneous-dependencies": [
             "error",
-            { packageDir: [".", require("node:path").join(__dirname, "../../..")] }
-        ]
+            { packageDir: [".", require("node:path").join(__dirname, "../../..")] },
+        ],
         // #endregion
     },
     overrides: [
@@ -255,8 +205,8 @@ module.exports = {
                         allowTypedFunctionExpressions: true,
                         allowHigherOrderFunctions: true,
                         allowDirectConstAssertionInArrowFunctions: true,
-                        allowConciseArrowFunctionExpressionsStartingWithVoid: false
-                    }
+                        allowConciseArrowFunctionExpressionsStartingWithVoid: false,
+                    },
                 ],
                 "@typescript-eslint/naming-convention": [
                     "error",
@@ -264,13 +214,13 @@ module.exports = {
                         selector: "default",
                         format: ["camelCase", "UPPER_CASE"],
                         leadingUnderscore: "allow",
-                        trailingUnderscore: "allow"
+                        trailingUnderscore: "allow",
                     },
                     {
                         selector: "variable",
                         format: ["camelCase", "UPPER_CASE"],
                         leadingUnderscore: "allowSingleOrDouble",
-                        trailingUnderscore: "allowSingleOrDouble"
+                        trailingUnderscore: "allowSingleOrDouble",
                     },
                     { selector: "objectLiteralProperty", format: null },
                     { selector: "objectLiteralMethod", format: null },
@@ -278,46 +228,46 @@ module.exports = {
                         selector: "typeLike",
                         format: ["PascalCase"],
                         leadingUnderscore: "allow",
-                        trailingUnderscore: "allow"
+                        trailingUnderscore: "allow",
                     },
                     {
                         selector: "enumMember",
                         format: ["PascalCase", "UPPER_CASE"],
                         leadingUnderscore: "forbid",
-                        trailingUnderscore: "forbid"
+                        trailingUnderscore: "forbid",
                     },
                     // Sometimes you might want to allow destructured properties to retain their original name,
                     // even if it breaks your naming convention.
                     {
                         selector: "variable",
                         modifiers: ["destructured"],
-                        format: null
+                        format: null,
                     },
                     {
                         selector: "variable",
                         modifiers: ["global", "const"],
-                        format: null
+                        format: null,
                     },
                     // Allow public static class property to name as whatever
                     {
                         selector: "classProperty",
                         modifiers: ["public", "static"],
-                        format: null
-                    }
-                ]
-            }
+                        format: null,
+                    },
+                ],
+            },
         },
         {
             files: ["*.js", "*.jsx"],
             rules: {
-                "@typescript-eslint/explicit-function-return-type": "off"
-            }
+                "@typescript-eslint/explicit-function-return-type": "off",
+            },
         },
         {
             files: ["**/__tests__/*.ts", "**/__tests__/*.ts"],
             rules: {
-                "import/no-extraneous-dependencies": "off"
-            }
-        }
-    ]
+                "import/no-extraneous-dependencies": "off",
+            },
+        },
+    ],
 };

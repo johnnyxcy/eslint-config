@@ -6,13 +6,13 @@ module.exports = {
         "plugin:react-hooks/recommended",
         "plugin:react-redux/recommended",
         "plugin:storybook/recommended",
-        require.resolve("./eslint.base")
+        require.resolve("./eslint.base"),
     ],
     plugins: ["react", "react-hooks", "react-redux", "i18next"],
     parserOptions: {
         ecmaFeatures: {
-            jsx: true
-        }
+            jsx: true,
+        },
     },
     settings: {
         react: {
@@ -20,8 +20,8 @@ module.exports = {
             // default to "createReactClass"
             pragma: "React", // Pragma to use, default to "React"
             fragment: "Fragment", // Fragment to use (may be a property of <pragma>), default to "Fragment"
-            version: "18.2" // React version. "detect" automatically picks the version you have installed.
-        }
+            version: "18.2", // React version. "detect" automatically picks the version you have installed.
+        },
     },
     rules: {
         "react/function-component-definition": ["error", { namedComponents: "arrow-function" }],
@@ -34,9 +34,9 @@ module.exports = {
             {
                 forbidDefaultForRequired: true,
                 classes: "defaultProps",
-                functions: "defaultArguments"
-            }
-        ]
+                functions: "defaultArguments",
+            },
+        ],
     },
     overrides: [
         {
@@ -49,8 +49,8 @@ module.exports = {
                     "error",
                     {
                         mode: "jsx-text-only",
-                        message: "字符需要符合 i18n 规范"
-                    }
+                        message: "字符需要符合 i18n 规范",
+                    },
                 ],
                 "@typescript-eslint/explicit-function-return-type": [
                     "error",
@@ -59,8 +59,8 @@ module.exports = {
                         allowTypedFunctionExpressions: true,
                         allowHigherOrderFunctions: true,
                         allowDirectConstAssertionInArrowFunctions: true,
-                        allowConciseArrowFunctionExpressionsStartingWithVoid: false
-                    }
+                        allowConciseArrowFunctionExpressionsStartingWithVoid: false,
+                    },
                 ],
                 "@typescript-eslint/naming-convention": [
                     "error",
@@ -68,61 +68,61 @@ module.exports = {
                         selector: "default",
                         format: ["camelCase"],
                         leadingUnderscore: "allow",
-                        trailingUnderscore: "allow"
+                        trailingUnderscore: "allow",
                     },
                     {
                         selector: "variable",
                         format: ["camelCase", "UPPER_CASE"],
                         leadingUnderscore: "allow",
-                        trailingUnderscore: "allow"
+                        trailingUnderscore: "allow",
                     },
                     {
                         selector: "typeProperty",
-                        format: ["camelCase", "PascalCase"]
+                        format: ["camelCase", "PascalCase"],
                     },
                     { selector: "objectLiteralProperty", format: null },
                     {
                         selector: "typeLike",
                         format: ["PascalCase"],
                         leadingUnderscore: "forbid",
-                        trailingUnderscore: "forbid"
+                        trailingUnderscore: "forbid",
                     },
                     {
                         selector: "enumMember",
                         format: ["UPPER_CASE"],
                         leadingUnderscore: "forbid",
-                        trailingUnderscore: "forbid"
+                        trailingUnderscore: "forbid",
                     },
                     // Sometimes you might want to allow destructured properties to retain their original name,
                     // even if it breaks your naming convention.
                     {
                         selector: "variable",
                         modifiers: ["destructured"],
-                        format: null
+                        format: null,
                     },
                     {
                         selector: "variable",
                         modifiers: ["global"],
-                        format: null
-                    }
+                        format: null,
+                    },
                 ],
                 "import/order": [
                     "error",
                     {
-                        "groups": ["builtin", "external", "internal", "sibling", "parent", "index", "type", "object"],
+                        groups: ["builtin", "external", "internal", "sibling", "parent", "index", "type", "object"],
                         "newlines-between": "always-and-inside-groups",
-                        "alphabetize": { order: "asc" },
-                        "pathGroups": [
+                        alphabetize: { order: "asc" },
+                        pathGroups: [
                             {
                                 pattern: "react",
                                 group: "builtin",
-                                position: "before"
-                            }
+                                position: "before",
+                            },
                         ],
-                        "pathGroupsExcludedImportTypes": ["react"]
-                    }
-                ]
-            }
+                        pathGroupsExcludedImportTypes: ["react"],
+                    },
+                ],
+            },
         },
         {
             // or whatever matches stories specified in .storybook/main.js
@@ -130,8 +130,8 @@ module.exports = {
             rules: {
                 "i18next/no-literal-string": "off",
                 "import/no-extraneous-dependencies": "off",
-                "no-console": "off"
-            }
-        }
-    ]
+                "no-console": "off",
+            },
+        },
+    ],
 };
