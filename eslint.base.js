@@ -19,8 +19,7 @@ module.exports = {
         "import/parsers": {
             "@typescript-eslint/parser": [".ts", ".tsx"],
         },
-        "import/core-modules": ["electron"],
-        "import/internal-regex": "^@mas/",
+        "import/internal-regex": "^@/",
     },
     reportUnusedDisableDirectives: true,
     rules: {
@@ -178,6 +177,11 @@ module.exports = {
             },
         ],
         "import/prefer-default-export": "off",
+        "import/extensions": [
+            "error",
+            "always",
+            { ignorePackages: true, pattern: { js: "never", jsx: "never", ts: "never", tsx: "never" } },
+        ],
         "import/no-useless-path-segments": [
             "error",
             {
@@ -188,10 +192,7 @@ module.exports = {
         "import/no-relative-packages": "off",
         "import/no-unassigned-import": ["error", { allow: ["**/*.css"] }],
         "import/no-self-import": "error",
-        "import/no-extraneous-dependencies": [
-            "error",
-            { packageDir: [".", require("node:path").join(__dirname, "../../..")] },
-        ],
+        "import/no-extraneous-dependencies": "error",
         // #endregion
     },
     overrides: [
