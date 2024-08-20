@@ -25,5 +25,8 @@
         "eslint-plugin-react-redux": "^4.1.0",
         "eslint-plugin-storybook": "^0.6.15",
         "eslint-plugin-unicorn": "^49.0.0"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
     }
 }
